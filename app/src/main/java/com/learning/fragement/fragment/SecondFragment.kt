@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import com.learning.fragement.R
+import com.learning.fragement.Util.replaceFragment
 import com.learning.fragement.databinding.FragmentSecondBinding
 
 class SecondFragment : Fragment(R.layout.fragment_second){
@@ -12,10 +13,7 @@ class SecondFragment : Fragment(R.layout.fragment_second){
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSecondBinding.bind(view)
         binding.btGoNext.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.fcMainActivity,
-                ThirdFragment().also { it.arguments = Bundle().also {
-                it.putString("USER_INPUT", binding.etInput.text.toString())
-            }}).addToBackStack("").commit()
+            requireActivity().supportFragmentManager.replaceFragment(ThirdFragment(), binding.etInput.text.toString())
         }
     }
 }

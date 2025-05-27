@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.learning.fragement.Util.replaceFragment
 import com.learning.fragement.databinding.ActivityMainBinding
 import com.learning.fragement.fragment.FirstFragment
 
@@ -16,6 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportFragmentManager.beginTransaction().add(R.id.fcMainActivity, FirstFragment()).commit()
+        supportFragmentManager.replaceFragment(FirstFragment())
     }
 }
